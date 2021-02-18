@@ -8,25 +8,19 @@
 int main()
 {	
 	srand(time(0));	
-	
- 	
 	sf::RenderWindow window(sf::VideoMode(800,600), "DVD");
 	//window.setFramerateLimit(60);
-	std::cin.get();
-	sf::sleep(sf::seconds(5));
-
+	
 	DVDWalker DvD;
 
 	while(window.isOpen())
 	{
-		
 		sf::Event event;
 		while(window.pollEvent(event))
 		{
 			if(event.type == sf::Event::Closed)
 				window.close();
 		}
-		
 		DvD.MoveSprite();
 		DvD.CheckBoundary(sf::Vector2i(window.getSize().x,window.getSize().y));
 		DvD.Display();
